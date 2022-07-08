@@ -1,0 +1,20 @@
+{
+	"main_post" : {
+		"header" : "str",
+		"body" : "str",
+		"tags" : "str",
+		"timestamp":"datetime"
+	},
+	"comments" : [
+		{
+			"body" : "str",
+			"timestamp" :"datetime",
+			"replies" : [
+				{
+					"body" : "str",
+					"timestamp" :"datetime"
+				}
+			]
+		}
+	]
+}
