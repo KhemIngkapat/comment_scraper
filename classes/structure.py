@@ -28,12 +28,9 @@ class Structurer:
 		el_name = list(map(lambda it: it.name,result))
 
 		for item in result:
-			for k in item.identifier:
+			for k in item.structure:
 				if k in el_name:
-					setattr(item,'identifier',result[el_name.index(k)].name)
-
-
-
+					setattr(item,'structure',result[el_name.index(k)].name)
 
 		return result
 	
