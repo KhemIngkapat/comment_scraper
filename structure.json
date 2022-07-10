@@ -1,20 +1,16 @@
 {
-	"main_post" : {
-		"header" : "str",
-		"body" : "str",
-		"tags" : "str",
-		"timestamp":"datetime"
+	"main_post:class[main-post]": {
+		"header": "class[display-post-title]",
+		"body": "class[display-post-story]",
+		"tags": "class[display-post-tag-wrapper]",
+		"timestamp": "class[display-post-timestamp]"
 	},
-	"comments" : [
+	"comment_section:id[comments-jsrender]": [
 		{
-			"body" : "str",
-			"timestamp" :"datetime",
-			"replies" : [
-				{
-					"body" : "str",
-					"timestamp" :"datetime"
-				}
-			]
+			"comments:class[display-post-wrapper-inner]": {
+				"body": "class[display-post-story]",
+				"timestamp": "class[display-post-timestamp]"
+			}
 		}
 	]
 }
