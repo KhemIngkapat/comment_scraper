@@ -1,15 +1,15 @@
 {
-	"main_post:class[main-post]": {
-		"header": "class[display-post-title]",
-		"body": "class[display-post-story]",
-		"tags": "class[display-post-tag-wrapper]",
-		"timestamp": "class[display-post-timestamp]"
+	"main_post:class_name[main-post]": {
+		"header": "class_name[display-post-title]",
+		"body": "class_name[display-post-story]",
+		"tags": "class_name[display-post-tag-wrapper]",
+		"timestamp": "class_name[display-post-timestamp]"
 	},
 	"comment_section:id[comments-jsrender]": [
 		{
-			"comments:class[display-post-wrapper-inner]": {
-				"body": "class[display-post-story]",
-				"timestamp": "class[display-post-timestamp]"
+			"comments:class_name[display-post-wrapper-inner]": {
+				"body": "class_name[display-post-story]",
+				"timestamp": "class_name[display-post-timestamp]"
 			}
 		}
 	]

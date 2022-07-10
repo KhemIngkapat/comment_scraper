@@ -45,7 +45,10 @@ class Element:
 
 	def __init__(self,name,details,multiple=False):
 		self.name = name
-		self.identifier = details
+		splitted_name = name.split(':')
+		self.element_name = splitted_name[0]
+		self.main_type,self.main_identifier = splitted_name[1][:-1].split('[')
+		self.structure = details
 		self.multiple = multiple
 
 	
