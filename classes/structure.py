@@ -13,21 +13,27 @@ class Structurer:
 
 	@property
 	def main_module(self) -> dict:
-		result = {}
+		result = []
 
-		def digger(dct):
+		def digger(dct,multiple=False):
 			for key,val in dct.items():
 				if isinstance(val,dict) and all(map(lambda v : isinstance(v, str),val)):
-					result[key] = val
+					result.append(Element(key,val,multiple=multiple))
 				elif isinstance(val, list):
-					result[key] = val[0]
-					return digger(dct[key][0])
+					result.append(Element(key,val[0],multiple=multiple))
+					return digger(dct[key][0],multiple=True)
 
 		digger(self.structure)
-		for key,val in result.items():
-			for k in val:
-				if k in result:
-					result[key][k] = k
+
+		el_name = list(map(lambda it: it.name,result))
+
+		for item in result:
+			for k in item.identifier:
+				if k in el_name:
+					setattr(item,'identifier',result[el_name.index(k)].name)
+
+
+
 
 		return result
 	
@@ -37,6 +43,10 @@ class Element:
 	This class will handle how to scrape and details of the element before go to the scraper class
 	'''
 
-	def __init__(self,name,**details):
-		print(details)
+	def __init__(self,name,details,multiple=False):
+		self.name = name
+		self.identifier = details
+		self.multiple = multiple
+
+	
 
