@@ -34,28 +34,29 @@ class Scraper(ABC):
 		pass
 
 	def scrape(self):
-		for md in self.main_module:
+		for md in self.main_module: # for loop every main_module
 			if md.multiple:
 				result = []
-				main = driver.find_elements(eval(f'By.{md.main_type.upper()}'),md.main_identifier)
-				for el in main:
+				main = driver.find_elements(eval(f'By.{md.main_type.upper()}'),md.main_identifier) # find all main_module
+				for el in main:# for loop every main_module
 					temp = {}
-					for k,v in md.structure.items():
+					for k,v in md.structure.items():# get the sub_module:some element that require
 						t,i = v[:-1].split('[')
-						try:
+						try: #sometimes it has ad
 							temp[k] = el.find_element(eval(f'By.{t.upper()}'),i).text
 						except Exception as e:
 							# print("I Hate Scraping")
 							continue
-					if temp:
+					if temp:# deling with ad
 						result.append({md.element_name : temp})
 					else:
 						pass
-				setattr(md, 'data', result)
-			else:
+				setattr(md, 'data', result) # set attribute to the main_module class
+			else: # not multiple main_module
 				result = {}
-				main = driver.find_element(eval(f'By.{md.main_type.upper()}'),md.main_identifier)
-				if isinstance(md.structure,str):
+				main = driver.find_element(eval(f'By.{md.main_type.upper()}'),md.main_identifier)# find main_module
+				#tbh this need to be fix because it is not flexible with some complex structure
+				if isinstance(md.structure,str):#some main_module have only another main_module
 					list_element_name = list(map(lambda it : it.name,self.main_module))
 					val_class = self.main_module[list_element_name.index(md.structure)]
 					result = val_class
@@ -69,6 +70,7 @@ class Scraper(ABC):
 
 		out = {}
 
+		# for loop the stucture to reconstruct
 		for k in self.structure:
 			list_element_name = list(map(lambda it : it.name,self.main_module))
 			sel_el = self.main_module[list_element_name.index(k)]

@@ -11,6 +11,7 @@ class Structurer:
 		with open(file_loc,'r') as json_file:
 			self.structure=json.load(json_file)
 
+	# To dig the structure and get the main_module: the one that is contain another class
 	@property
 	def main_module(self) -> dict:
 		result = []
