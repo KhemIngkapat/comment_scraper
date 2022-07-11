@@ -33,6 +33,7 @@ class Structurer:
 					setattr(item,'structure',result[el_name.index(k)].name)
 
 		return result
+
 	
 			
 class Element:
