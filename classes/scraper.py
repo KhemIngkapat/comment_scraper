@@ -26,7 +26,7 @@ class Scraper(ABC):
 		see_mores = driver.find_elements(By.CLASS_NAME,"see-more") #find all see-more button to render every comment
 
 		for bt in see_mores: # loop through all button and click it to render
-			driver.execute_script("arguments[0].click();",bt) #WTF, it's magic
+			driver.execute_script("arguments[0].click();",bt) # it's magic
 	
 	# @abstractmethod
 	def pre_scrape(self,*args):
