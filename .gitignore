@@ -1,2 +1,5 @@
 paste_bin.txt
+msedgedriver
 base_scraper.py
+__pypackages__
+*.pyc

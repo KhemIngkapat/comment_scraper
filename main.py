@@ -1,4 +1,4 @@
-from classes.structure import Structurer,Element
+from classes.structure import Structurer
 from classes.scraper import Scraper
 import json
 st = Structurer('structure.json')

@@ -1,21 +1,20 @@
 #importing things
-import os.path
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.edge.service import Service
 from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.options import Options
-from abc import ABC,abstractmethod
+from selenium.webdriver.edge.options import Options
+from abc import ABC
 
 ## Setup chrome options
-chrome_options = Options()
-chrome_options.add_argument("--headless") # Ensure GUI is off
+edge_options = Options()
+edge_options.add_argument("--headless") # Ensure GUI is off
 
 # Set path to chromedriver as per your configuration
-homedir = os.path.expanduser("~")
-webdriver_service = Service(f"{homedir}/chromedriver/stable/chromedriver")
+# homedir = os.path.expanduser("~")
+webdriver_service = Service(f"./msedgedriver")
 
 # Choose Chrome Browser
-driver = webdriver.Chrome(service=webdriver_service, options=chrome_options)
+driver = webdriver.Edge(service=webdriver_service, options=edge_options)
 
 class Scraper(ABC):
 	def __init__(self,url,structure):
