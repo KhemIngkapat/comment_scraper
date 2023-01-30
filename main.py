@@ -1,11 +1,9 @@
-from classes.structure import Structurer
-from classes.scraper import Scraper
+from classes import *
 import json
 st = Structurer('structure.json')
 sc = Scraper('https://pantip.com/topic/31081800', st)
 
 sc.scrape()
-
 
 # print(sc.main_module[1].data)
 
